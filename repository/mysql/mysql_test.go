@@ -11,7 +11,7 @@ import (
 	"log"
 	"testing"
 
-	r "github.com/moemoe89/go-unit-test-sql/repository"
+	r "go-unit-test-sql/repository"
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/google/uuid"
@@ -48,9 +48,16 @@ func TestFindByID(t *testing.T) {
 
 	mock.ExpectQuery(query).WithArgs(u.ID).WillReturnRows(rows)
 
-	user, err := repo.FindByID(u.ID)
-	assert.NotNil(t, user)
-	assert.NoError(t, err)
+	// versi t test biasa
+	// now we execute our method
+	if _, err := repo.FindByID(u.ID); err != nil {
+		t.Errorf("error was not expected while query: %s", err)
+	}
+
+	// we make sure that all expectations were met
+	if err := mock.ExpectationsWereMet(); err != nil {
+		t.Errorf("there were unfulfilled expectations: %s", err)
+	}
 }
 
 func TestFindByIDError(t *testing.T) {

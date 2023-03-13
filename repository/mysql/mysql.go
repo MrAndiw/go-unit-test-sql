@@ -9,9 +9,10 @@ package mysql
 import (
 	"context"
 	"database/sql"
+	"fmt"
 	"time"
 
-	repo "github.com/moemoe89/go-unit-test-sql/repository"
+	repo "go-unit-test-sql/repository"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -55,6 +56,7 @@ func (r *repository) FindByID(id string) (*repo.UserModel, error) {
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("Result : ", user)
 	return user, nil
 }
 

@@ -1,4 +1,4 @@
-module github.com/moemoe89/go-unit-test-sql
+module go-unit-test-sql
 
 go 1.14
 

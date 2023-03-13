@@ -11,7 +11,7 @@ import (
 	"database/sql"
 	"time"
 
-	repo "github.com/moemoe89/go-unit-test-sql/repository"
+	repo "go-unit-test-sql/repository"
 
 	_ "github.com/lib/pq"
 )

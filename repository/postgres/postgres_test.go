@@ -11,7 +11,7 @@ import (
 	"log"
 	"testing"
 
-	r "github.com/moemoe89/go-unit-test-sql/repository"
+	r "go-unit-test-sql/repository"
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/google/uuid"
