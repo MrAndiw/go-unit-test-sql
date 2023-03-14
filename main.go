@@ -19,12 +19,12 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer repo.Close()
 
 	user, err := repo.FindByID("1")
 	if err != nil {
 		fmt.Printf("error FindByID %v", err)
 	}
-	defer repo.Close()
 
 	fmt.Println(user)
 	fmt.Println("DONE")
